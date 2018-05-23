@@ -1,21 +1,34 @@
 package com.corific.p2_vaio.corific_ui.activity;
 
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.corific.p2_vaio.corific_ui.R;
+import com.corific.p2_vaio.corific_ui.adapter.ViewPagerAdapter;
+import com.corific.p2_vaio.corific_ui.fragments.More;
+import com.corific.p2_vaio.corific_ui.fragments.Qualification;
+import com.corific.p2_vaio.corific_ui.fragments.Reviews;
 
 public class MainActivity extends AppCompatActivity {
 
     private float collapsedScale;
     private float expandedScale;
     private ImageView photoView ;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
+    private ViewPagerAdapter adapter;
 
     private static final String TAG = "MainActivity";
 
@@ -31,6 +44,18 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("");
 
         photoView = (ImageView) findViewById(R.id.image);
+
+        tabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
+
+        setupViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setTabTextColors(getResources().getColor(R.color.colorAccent), Color.parseColor("#ffffff"));
+//        createTabIcons();
+
+        NestedScrollView scrollView = (NestedScrollView) findViewById (R.id.nest_scrollView);
+        scrollView.setFillViewport (true);
+
 
         AppBarLayout mAppBarLayout = (AppBarLayout) findViewById(R.id.appBar);
         mAppBarLayout.setExpanded(false);
@@ -68,6 +93,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void setupViewPager(ViewPager viewPager) {
+
+            //setting up viewPager for swipe view between ALL/MY Listings
+            adapter = new ViewPagerAdapter(getSupportFragmentManager());
+            adapter.addFragment(new Reviews(), "Reviews");
+            adapter.addFragment(new Qualification(), "Qualification");
+            adapter.addFragment(new More(), "More");
+            viewPager.setAdapter(adapter);
+        }
+
+
 
     private static void scalePhotoImage(ImageView photoView, float scale) {
 
@@ -94,4 +130,26 @@ public class MainActivity extends AppCompatActivity {
 
         photoView.setImageMatrix(imageMatrix);
     }
+    private void createTabIcons() {
+
+        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        tabOne.setText("Reviews");
+//        tabOne.setBackground(getResources().getDrawable(R.drawable.rounded_rect_bg));
+//        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.mipmap.analytics, 0, 0);
+        tabLayout.getTabAt(0).setCustomView(tabOne);
+
+        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        tabTwo.setText("Qualification");
+//        tabOne.setBackground(getResources().getDrawable(R.drawable.rounded_rect_bg));
+        tabLayout.getTabAt(1).setCustomView(tabTwo);
+
+        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
+        tabThree.setText("More");
+//        tabOne.setBackground(getResources().getDrawable(R.drawable.rounded_rect_bg));
+        tabLayout.getTabAt(2).setCustomView(tabThree);
+    }
+
+
+
+
 }

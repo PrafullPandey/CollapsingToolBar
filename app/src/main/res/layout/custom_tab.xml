@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:textColor="@color/colorAccent"
+    android:textSize="12dp"
+    android:textStyle="bold"
+    android:text="@string/hello_blank_fragment"
+    android:padding="2dp"
+
+    >
+
+</TextView>

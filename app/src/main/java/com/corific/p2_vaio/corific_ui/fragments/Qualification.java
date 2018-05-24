@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 import com.corific.p2_vaio.corific_ui.R;
 import com.corific.p2_vaio.corific_ui.adapter.MoreAdapter;
+import com.corific.p2_vaio.corific_ui.adapter.QualificationAdapter;
+import com.corific.p2_vaio.corific_ui.modals.Qualification_Model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,10 +21,13 @@ import java.util.Arrays;
 
 public class Qualification extends Fragment {
 
-    private ArrayList<String> moreList ;
-    private String[] moreArray ;
+    private ArrayList<Qualification_Model> qualificationList = new ArrayList<>() ;
+    private Qualification_Model qualificationModel;
+    private String[] qualificationCourseArray ;
+    private String[] qualificationCollegeArray ;
+    private String[] qualificationDurationArray ;
     private RecyclerView recyclerViewMore;
-    private MoreAdapter moreAdapter ;
+    private QualificationAdapter qualificationAdapter ;
 
 
     public Qualification() {
@@ -39,16 +44,28 @@ public class Qualification extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_more, container, false);
+        View view = inflater.inflate(R.layout.fragment_qualification, container, false);
 
-        moreArray = getResources().getStringArray(R.array.addToContacts);
-        moreList = new ArrayList<>(Arrays.asList(moreArray));
+        qualificationCourseArray = getResources().getStringArray(R.array.qualificationCourse);
+        qualificationCollegeArray = getResources().getStringArray(R.array.qualificationCollege);
+        qualificationDurationArray = getResources().getStringArray(R.array.qualificationDuration);
 
-        moreAdapter = new MoreAdapter(getActivity() , moreList);
-        recyclerViewMore = (RecyclerView)view.findViewById(R.id.recyclerViewMore);
+        for(int i =0 ; i<qualificationCollegeArray.length ;i++){
+
+            qualificationModel = new Qualification_Model();
+            qualificationModel.setCourse(qualificationCourseArray[i]);
+            qualificationModel.setCollege(qualificationCollegeArray[i]);
+            qualificationModel.setDuration(qualificationDurationArray[i]);
+
+            qualificationList.add(qualificationModel);
+        }
+
+
+        qualificationAdapter = new QualificationAdapter(getActivity() , qualificationList);
+        recyclerViewMore = (RecyclerView)view.findViewById(R.id.recyclerViewQualification);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerViewMore.setLayoutManager(layoutManager);
-        recyclerViewMore.setAdapter(moreAdapter);
+        recyclerViewMore.setAdapter(qualificationAdapter);
 
 
 

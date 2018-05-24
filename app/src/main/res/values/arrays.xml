@@ -2,17 +2,31 @@
 <resources>
 
     <string-array name="addToContacts">
-
         <item>Jobs</item>
         <item>Projects</item>
         <item>Places</item>
         <item>Availability</item>
         <item>Languages</item>
-
-
-
     </string-array>
 
+
+    <string-array name="qualificationCourse">
+        <item>B.TECH</item>
+        <item>INTERMEDIATE</item>
+        <item>HIGH SCHOOL</item>
+    </string-array>
+
+    <string-array name="qualificationCollege">
+        <item>JIIT</item>
+        <item>PCVN</item>
+        <item>PCVN</item>
+    </string-array>
+
+    <string-array name="qualificationDuration">
+        <item>05/2015 - 05/2019</item>
+        <item>04/2013 - 04/2014</item>
+        <item>04/2011 - 04/2012</item>
+    </string-array>
 
 
 </resources>

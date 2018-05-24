@@ -122,7 +122,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "scalePhotoImage: \n"+"offsetX => "+offsetX
                                              +"\noffsetY => "+offsetY
                                             +"\ncenterY => "+centerX
-                                            +"\ncenterY => "+centerY);
+                                            +"\ncenterY => "+centerY
+                                            +"\nScale => "+scale);
 
         Matrix imageMatrix = new Matrix();
         imageMatrix.setScale(scale, scale, centerX, centerY);

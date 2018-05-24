@@ -16,7 +16,7 @@
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="300dp"
             android:fitsSystemWindows="false"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleTextAppearance="@android:color/transparent"
@@ -24,42 +24,300 @@
 
             >
 
-
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="250dp"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+
+            </android.support.v7.widget.Toolbar>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/image"
+                android:layout_gravity="bottom|center_horizontal"
+                android:clipToPadding="false"
+                app:layout_collapseMode="pin">
 
                 <ImageView
                     android:id="@+id/image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:clipToPadding="false"
                     android:scaleType="matrix"
                     android:src="@mipmap/ic_placeholder_user"
                     app:layout_collapseMode="pin" />
 
 
-            </android.support.v7.widget.Toolbar>
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tabLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:layout_gravity="bottom|center_horizontal"
-                android:clipToPadding="false"
-                android:theme="@style/Base.Widget.Design.TabLayout"
-                app:layout_collapseMode="pin"
-                app:tabGravity="center"
-                app:tabMode="fixed"
-                app:tabTextColor="@color/colorAccent"
-                app:tabPaddingStart="5dp"
-                app:tabPaddingEnd="5dp"
-                android:layout_marginBottom="4dp"
+                <TextView
+                    android:layout_below="@+id/image"
+                    android:id="@+id/nameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Prafull Pandey"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
 
-                />
+                    />
+
+                <TextView
+                    android:id="@+id/idText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nameText"
+                    android:gravity="center_horizontal"
+                    android:text="ID: 24"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idText"
+                    android:id="@+id/detailBlock"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_weight="0.20"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            app:srcCompat="@drawable/ic_action_chat" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="0.7"
+                            android:gravity="center"
+                            android:text="‎₹0/msg" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_weight="0.20"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            app:srcCompat="@drawable/ic_action_call" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="0.7"
+                            android:gravity="center"
+                            android:text="‎₹0/min" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_weight="0.20"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            app:srcCompat="@drawable/ic_action_video" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="0.7"
+                            android:gravity="center"
+                            android:text="‎₹0/min" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/detailBlock"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:id="@+id/actionButtonBlock">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.25"
+                        android:gravity="center">
+
+
+                        <android.support.design.widget.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_action_chat_white"
+                            android:layout_weight="0.8"
+                            app:fabSize="normal"
+                            android:scaleType="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="10dp"
+                            android:layout_weight="0.2"
+                            android:text="chat"
+                            android:textAlignment="center"
+                            android:gravity="center"
+
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.25"
+                        android:gravity="center">
+
+
+                        <android.support.design.widget.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_action_call_white"
+                            android:layout_weight="0.8"
+                            app:fabSize="normal"
+                            android:scaleType="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="10dp"
+                            android:layout_weight="0.2"
+                            android:text="call"
+                            android:textAlignment="center"
+                            android:gravity="center"
+
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="0.25"
+                        android:gravity="center">
+
+
+                        <android.support.design.widget.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_action_video_white"
+                            android:layout_weight="0.8"
+                            app:fabSize="normal"
+                            android:scaleType="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="10dp"
+                            android:layout_weight="0.2"
+                            android:text="video"
+                            android:textAlignment="center"
+                            android:gravity="center"
+
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="0.25"
+                        android:gravity="center">
+
+
+                        <android.support.design.widget.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_action_email_white"
+                            android:layout_weight="0.8"
+                            app:fabSize="normal"
+                            android:scaleType="center"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="10dp"
+                            android:layout_weight="0.2"
+                            android:text="mail"
+                            android:textAlignment="center"
+                            android:gravity="center"
+
+                            />
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+                <android.support.design.widget.TabLayout
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:layout_below="@+id/actionButtonBlock"
+                    android:id="@+id/tabLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_marginBottom="4dp"
+                    android:clipToPadding="false"
+                    android:theme="@style/Base.Widget.Design.TabLayout"
+                    app:layout_collapseMode="pin"
+                    app:tabGravity="center"
+                    app:tabMode="fixed"
+                    app:tabPaddingEnd="5dp"
+                    app:tabPaddingStart="5dp"
+                    app:tabTextColor="@color/colorAccent"
+
+                    />
+
+
+            </RelativeLayout>
+
 
 
         </android.support.design.widget.CollapsingToolbarLayout>

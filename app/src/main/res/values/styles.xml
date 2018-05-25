@@ -3,9 +3,12 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@android:color/background_light</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@android:color/secondary_text_dark</item>
+        <item name="actionMenuTextColor">@android:color/black</item>
 
     </style>
 
@@ -13,8 +16,18 @@
         <item name="tabBackground">@drawable/tab_background</item>
         <item name="tabIndicatorColor">#ff00ff</item>
         <item name="tabIndicatorHeight">2dp</item>
+        <item name="textAllCaps">false</item>
         <item name="android:textAllCaps">false</item>
     </style>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/MyCustomTextAppearance</item>
+    </style>
+
+    <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+
 
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/grey_300</item>

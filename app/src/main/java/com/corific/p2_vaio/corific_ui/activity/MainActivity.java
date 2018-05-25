@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.d(TAG, "onActivityResult: WRITE_EXTERNAL_STORAGE "+imageIndex);
+                    loadLocallySavedImage();
                     GetImageFromURL getImageFromURL = new GetImageFromURL();
                     getImageFromURL.execute(urls[imageIndex]);
                 } else {
@@ -178,6 +179,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void getPermissions() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+            loadLocallySavedImage();
+
             GetImageFromURL getImageFromURL = new GetImageFromURL();
             getImageFromURL.execute(urls[imageIndex]);
 
@@ -189,6 +193,24 @@ public class MainActivity extends AppCompatActivity {
              } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, READ_EXTERNAL_STORAGE);
         }
+    }
+
+    private void loadLocallySavedImage() {
+
+        FileOutputStream outStream = null;
+        File sdCard = Environment.getExternalStorageDirectory();
+        File dir = new File(sdCard.getAbsolutePath() + "/TestImage");
+        dir.mkdirs();
+        String fileName = "USER_IMAGE.jpg";
+        File outFile = new File(dir, fileName);
+
+        Bitmap bitmap = BitmapFactory.decodeFile(outFile.getAbsolutePath());
+        image.setImageBitmap(bitmap);
+
+
+
+
+
     }
 
     private void setupViewPager(ViewPager viewPager) {

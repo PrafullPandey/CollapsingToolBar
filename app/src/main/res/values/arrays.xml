@@ -29,4 +29,33 @@
     </string-array>
 
 
+
+    <string-array name="reviewName">
+        <item>Prafull</item>
+        <item>Deeksha</item>
+        <item>Yash</item>
+        <item>Pratyush</item>
+        <item>Saransh</item>
+
+    </string-array>
+
+    <string-array name="reviewMessage">
+        <item>well done keep it up.</item>
+        <item>was very good and helpful</item>
+        <item>scope of improvement</item>
+        <item>very good</item>
+        <item>helpful and professional</item>
+
+    </string-array>
+
+    <integer-array  name="reviewRating">
+        <item>4</item>
+        <item>5</item>
+        <item>2</item>
+        <item>4</item>
+        <item>3</item>
+
+    </integer-array>
+
+
 </resources>

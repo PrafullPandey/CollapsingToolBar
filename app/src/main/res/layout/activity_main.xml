@@ -55,16 +55,15 @@
                     app:layout_collapseMode="pin" />
 
 
-
                 <TextView
-                    android:layout_below="@+id/image"
                     android:id="@+id/nameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/image"
                     android:gravity="center_horizontal"
                     android:text="Prafull Pandey"
                     android:textAlignment="center"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
 
                     />
@@ -80,10 +79,10 @@
                     android:textSize="14sp" />
 
                 <LinearLayout
+                    android:id="@+id/detailBlock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/idText"
-                    android:id="@+id/detailBlock"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:layout_marginTop="4dp"
@@ -165,39 +164,39 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/actionButtonBlock"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
                     android:layout_below="@+id/detailBlock"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:layout_marginTop="4dp"
                     android:gravity="center"
-                    android:orientation="horizontal"
-                    android:id="@+id/actionButtonBlock">
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
                         android:layout_weight="0.25"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
 
                         <android.support.design.widget.FloatingActionButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_action_chat_white"
                             android:layout_weight="0.8"
+                            android:scaleType="center"
                             app:fabSize="normal"
-                            android:scaleType="center"/>
+                            app:srcCompat="@drawable/ic_action_chat_white"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"
                             android:layout_weight="0.2"
+                            android:gravity="center"
                             android:text="chat"
                             android:textAlignment="center"
-                            android:gravity="center"
+                            android:textSize="10dp"
 
                             />
 
@@ -207,26 +206,26 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
                         android:layout_weight="0.25"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
 
                         <android.support.design.widget.FloatingActionButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_action_call_white"
                             android:layout_weight="0.8"
+                            android:scaleType="center"
                             app:fabSize="normal"
-                            android:scaleType="center"/>
+                            app:srcCompat="@drawable/ic_action_call_white"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"
                             android:layout_weight="0.2"
+                            android:gravity="center"
                             android:text="call"
                             android:textAlignment="center"
-                            android:gravity="center"
+                            android:textSize="10dp"
 
                             />
 
@@ -236,26 +235,26 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="0.25"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
 
                         <android.support.design.widget.FloatingActionButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_action_video_white"
                             android:layout_weight="0.8"
+                            android:scaleType="center"
                             app:fabSize="normal"
-                            android:scaleType="center"/>
+                            app:srcCompat="@drawable/ic_action_video_white"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"
                             android:layout_weight="0.2"
+                            android:gravity="center"
                             android:text="video"
                             android:textAlignment="center"
-                            android:gravity="center"
+                            android:textSize="10dp"
 
                             />
 
@@ -265,26 +264,26 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
                         android:layout_weight="0.25"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
 
                         <android.support.design.widget.FloatingActionButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/ic_action_email_white"
                             android:layout_weight="0.8"
+                            android:scaleType="center"
                             app:fabSize="normal"
-                            android:scaleType="center"/>
+                            app:srcCompat="@drawable/ic_action_email_white"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="10dp"
                             android:layout_weight="0.2"
+                            android:gravity="center"
                             android:text="mail"
                             android:textAlignment="center"
-                            android:gravity="center"
+                            android:textSize="10dp"
 
                             />
 
@@ -297,13 +296,13 @@
                 </LinearLayout>
 
                 <android.support.design.widget.TabLayout
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="12dp"
-                    android:layout_below="@+id/actionButtonBlock"
                     android:id="@+id/tabLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="28dp"
+                    android:layout_below="@+id/actionButtonBlock"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginBottom="4dp"
+                    android:layout_marginTop="12dp"
                     android:clipToPadding="false"
                     android:theme="@style/Base.Widget.Design.TabLayout"
                     app:layout_collapseMode="pin"

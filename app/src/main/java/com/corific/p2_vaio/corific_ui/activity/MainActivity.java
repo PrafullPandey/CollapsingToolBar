@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.image);
 
         Random random = new Random();
-        imageIndex = random.nextInt(3);
+        imageIndex = random.nextInt(4);
 
         getPermissions();
 

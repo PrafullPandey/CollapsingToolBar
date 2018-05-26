@@ -21,7 +21,6 @@
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleTextAppearance="@android:color/transparent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-
             >
 
             <android.support.v7.widget.Toolbar

@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.corific.p2_vaio.corific_ui.fragments.More">
     <RelativeLayout
+        android:id="@+id/containerRelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

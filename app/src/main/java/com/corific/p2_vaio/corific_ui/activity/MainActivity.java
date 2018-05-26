@@ -9,9 +9,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.support.animation.DynamicAnimation;
+import android.support.animation.SpringAnimation;
+import android.support.animation.SpringForce;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
@@ -42,11 +46,17 @@ import java.net.URL;
 import java.util.Date;
 import java.util.Random;
 
+import static android.support.animation.SpringForce.STIFFNESS_LOW;
+import static android.support.animation.SpringForce.STIFFNESS_VERY_LOW;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final int WRITE_EXTERNAL_STORAGE = 1;
     public static final int READ_EXTERNAL_STORAGE = 2;
     private static final String TAG = "MainActivity";
+    public static SpringAnimation springAnim ;
+    public static float appBarY;
+    private static AppBarLayout mAppBarLayout ;
     private float collapsedScale;
     private float expandedScale;
     private ImageView photoView;
@@ -82,6 +92,19 @@ public class MainActivity extends AppCompatActivity {
         imageMatrix.preTranslate(offsetX, offsetY);
 
         photoView.setImageMatrix(imageMatrix);
+    }
+
+    public static void createAnim(){
+        springAnim = new SpringAnimation(mAppBarLayout, DynamicAnimation.TRANSLATION_Y, 0);
+
+        //Setting the damping ratio to create a low bouncing effect.
+        springAnim.getSpring().setDampingRatio(SpringForce.DAMPING_RATIO_NO_BOUNCY);
+
+        //Setting the spring with a low stiffness.
+        springAnim.getSpring().setStiffness(STIFFNESS_VERY_LOW);
+
+        springAnim.getSpring().setFinalPosition(appBarY);
+        springAnim.setStartVelocity(2000f);
     }
 
     @Override
@@ -141,11 +164,21 @@ public class MainActivity extends AppCompatActivity {
 
         getPermissions();
 
-        AppBarLayout mAppBarLayout = (AppBarLayout) findViewById(R.id.appBar);
+        mAppBarLayout = (AppBarLayout) findViewById(R.id.appBar);
         mAppBarLayout.setExpanded(false);
+        appBarY = mAppBarLayout.getY();
+
+
         mAppBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+
+
+                if(verticalOffset==0) {
+                    Log.d(TAG, "onOffsetChanged: verticalOffset => "+verticalOffset);
+//                    springAnim.start();
+                }
+
                 int maxScroll = appBarLayout.getTotalScrollRange();
 
                 float scrollPercent = (float) Math.abs(verticalOffset) / (float) maxScroll;
@@ -161,19 +194,32 @@ public class MainActivity extends AppCompatActivity {
                     expandedScale = (float) photoView.getHeight() / (float) bitmapHeight;
 
                     scalePhotoImage(photoView, expandedScale);
-//                    Log.d(TAG, "onOffsetChanged: if\nscrollPercent => " + scrollPercent + "\n" + collapsedScale + "\n" + expandedScale);
+                    Log.d(TAG, "onOffsetChanged: if\nscrollPercent => " + scrollPercent + "\n" + collapsedScale + "\n" + expandedScale);
 
 
                 } else {
 
                     scalePhotoImage(photoView, (collapsedScale + (expandedScale - collapsedScale) * (scrollPercent)) / 2);
-//                    Log.d(TAG, "onOffsetChanged: else\nscrollPercent => " + scrollPercent + "\n" + collapsedScale + "\n" + expandedScale);
+                    Log.d(TAG, "onOffsetChanged: else\nscrollPercent => " + scrollPercent + "\n" + collapsedScale + "\n" + expandedScale);
 
                 }
 
 
             }
         });
+
+        createAnim();
+
+        springAnim.addUpdateListener(new DynamicAnimation.OnAnimationUpdateListener() {
+            @Override
+            public void onAnimationUpdate(DynamicAnimation animation, float value, float velocity) {
+                Log.d(TAG, "onAnimationUpdate: \nvalue => "+value);
+            }
+        });
+
+
+
+
 
     }
 
